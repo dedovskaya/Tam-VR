@@ -14,7 +14,10 @@ public class GraphController : MonoBehaviour
     public float nodeRepulsion = 100f;
     public float damping = 0.8f;
     public bool exportData = false;
-
+    public bool raiseGraph = false;
+    public bool createMiniMap = false;
+    public bool createHeightMap2 = false;
+    public bool createHeightMap3 = false;
 
     // Start is called before the first frame update
     void Update()

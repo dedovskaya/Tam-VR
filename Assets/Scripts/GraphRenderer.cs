@@ -16,7 +16,7 @@ public class GraphRenderer : MonoBehaviour
     private List<TextMesh> yearsTextMesh;
     private List<GameObject> nameText;
     public List<GameObject> nodes;
-    private List<GameObject> edges;
+    public List<GameObject> edges;
     private List<GameObject> arrowheads;
     private List<TextMesh> nameTextMesh;
 
@@ -33,11 +33,15 @@ public class GraphRenderer : MonoBehaviour
 
     void RenderGraph(GraphData graphData)
     {
+        // Create a parent game object for the graph
+        GameObject graphObj = new GameObject("Graph");
+        GameObject nodesSceneObj = new GameObject("Nodes");
+        nodesSceneObj.transform.SetParent(graphObj.transform, false);
 
         // Create GameObjects for each node in the graph and set their positions
         foreach (Node nodeData in graphData.nodes)
         {
-            GameObject nodeObj = Instantiate(nodePrefab, Vector3.zero, Quaternion.identity);
+            GameObject nodeObj = Instantiate(nodePrefab, Vector3.zero, Quaternion.identity, nodesSceneObj.transform);
             nodeObj.name = nodeData.id;
             nodeObj.transform.position = new Vector3(UnityEngine.Random.Range(-5f, 5f),
                                                      0f,
@@ -67,10 +71,13 @@ public class GraphRenderer : MonoBehaviour
             textYearMesh.text = nodeData.birthYear.ToString();
             yearsTextMesh.Add(textYearMesh);
         }
+
+        GameObject edgesSceneObj = new GameObject("Edges");
+        edgesSceneObj.transform.SetParent(graphObj.transform, false);
         // Create GameObjects for each edge in the graph and set their positions
         foreach (Edge edgeData in graphData.edges)
         {
-            GameObject edgeObj = Instantiate(edgePrefab);
+            GameObject edgeObj = Instantiate(edgePrefab, edgesSceneObj.transform);
             edgeObj.name = edgeData.source.id + " to " + edgeData.target.id;
             // Get the LineRenderer component of the edge
             LineRenderer lineRenderer = edgeObj.GetComponent<LineRenderer>();
@@ -220,6 +227,25 @@ public class GraphRenderer : MonoBehaviour
                 color.a = 1f;
                 textMesh.color = color;
             }
+        }
+
+        /////////////////////
+        // Raise graph
+        if (graphController.raiseGraph)
+        {
+            foreach (GameObject node in nodes)
+            {
+                TextMesh secondTextMesh = node.transform.GetChild(1).GetComponent<TextMesh>();
+                float y = float.Parse(secondTextMesh.text);
+
+                // Get the current position of the GameObject
+                Vector3 pos = node.transform.position;
+                // Update the y-coordinate of the position
+                pos.y = (y - 1553) / 10;
+                // Update the position of the GameObject
+                node.transform.position = pos;
+            }
+            graphController.raiseGraph = false;
         }
     }
 }

@@ -11,6 +11,7 @@ public class Node
     public Vector3 position; // added field for position
     public Vector3 velocity;
     public List<Edge> edges = new List<Edge>();
+    public string family;
 
     public Node(string id, string name, int birthYear)
     {
