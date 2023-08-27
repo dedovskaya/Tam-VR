@@ -1,0 +1,3 @@
+# Tam-VR
+
+The TamVR is a project aimed at bringing to life the intricate connections between individuals and their families. Through the utilization of GEDCOM or JSON data, the application transforms genealogical information into a network consisting of individuals, families, and connections between them. Depending on the birth year of each individual a terrain is generated (the later a person is born, the higher the point in the terrain). Terrain and the network are then rendered within a virtual reality environment, creating an immersive and interactive experience that allows users to explore and understand family relationships in a whole new way.
