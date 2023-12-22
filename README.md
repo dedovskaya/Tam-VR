@@ -1,8 +1,15 @@
 # Tam-VR
-VR-based Exploration of Topographical Attribute Maps
-TamVR, a VR adaptation of the web application featuring topographic attribute maps. 
-![image1](https://github.com/dedovskaya/Tam-VR/assets/71874540/c1abb131-7c59-4fcb-bf6c-af42614f4fc2)
-![tam2](https://github.com/dedovskaya/Tam-VR/assets/71874540/9dc82d7b-2955-4714-8c89-170e110dcc5d)
+<b>TamVR</b> is a Unity VR application for exploring genealogy or a pedigree graph in virtual reality. The family tree graph is situated on a landscape, where the height of the terrain corresponds to the birth year of each individual. Connections between families and individuals are represented by roads on the terrain, families by mills, and individual persons by houses. Each element is accompanied with a tooltip showing important information about a person such as name, family name, birth year, death year, etc. The player can navigate the terrain, track the year (height) of where the player is currently, use the PathFinder menu to find interested in connections between individuals, set a visible year (height) contour, and use telescope
+
+TamVR is a VR adaptation of a web application <b><a href="https://github.com/rpreiner/tam">Topographic Attribute Maps</a></b>. The application uses <b><a href="https://de.wikipedia.org/wiki/GEDCOM">GEDCOM</a></b> (FamilySearch GEDCOM), an open file format for genealogical data. GEDCOM allows to exchange genealogical data between different systems.
+
+
+<p align="center">
+<img src="https://github.com/dedovskaya/Tam-VR/assets/71874540/c1abb131-7c59-4fcb-bf6c-af42614f4fc2" width="700">
+</p>
+<p align="center">
+<img src="https://github.com/dedovskaya/Tam-VR/assets/71874540/9dc82d7b-2955-4714-8c89-170e110dcc5d" width="700">
+</p>
 
 
 ## How it works
